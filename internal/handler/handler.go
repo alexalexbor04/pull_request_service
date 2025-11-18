@@ -69,12 +69,10 @@ func (h *Handler) AddTeam(w http.ResponseWriter, r *http.Request) {
 		writeError(w, http.StatusInternalServerError, "INTERNAL_ERROR", "Internal server error")
 		return
 	}
-	
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusOK)
-	if err := json.NewEncoder(w).Encode(createdTeam); err != nil {
-		log.Printf("Error encoding response: %v", err)
-	}
+
+	writeJSON(w, http.StatusCreated, map[string]interface{}{
+		"team": createdTeam,
+	})
 }
 
 func (h *Handler) GetTeam(w http.ResponseWriter, r *http.Request) {

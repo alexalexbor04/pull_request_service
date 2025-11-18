@@ -3,7 +3,7 @@ package entities
 import "time"
 
 type User struct {
-	ID string `json:"id" db:"id"`
+	ID string `json:"user_id" db:"id"`
 	Username string `json:"username" db:"username"`
 	TeamName string `json:"team_name" db:"team_name"`
 	IsActive bool `json:"is_active" db:"is_active"`
@@ -21,8 +21,8 @@ type Team struct {
 }
 
 type PullRequest struct {
-	ID string `json:"id" db:"id"`
-	Name string `json:"name" db:"name"`
+	ID string `json:"pull_request_id" db:"id"`
+	Name string `json:"pull_request_name" db:"name"`
 	AuthorID string `json:"author_id" db:"author_id"`
 	Status string `json:"status" db:"status"`
 	AssignedReviewers []string `json:"assigned_reviewers"`
@@ -31,8 +31,8 @@ type PullRequest struct {
 }
 
 type PullRequestShort struct {
-	ID string `json:"id"`
-	Name string `json:"name"`
+	ID string `json:"pull_request_id"`
+	Name string `json:"pull_request_name"`
 	AuthorID string `json:"author_id"`
 	Status string `json:"status"`
 }
